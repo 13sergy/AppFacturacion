@@ -1,0 +1,68 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Gestión de Clientes
+        <!--<small>Optional description</small>-->
+    </h1>
+
+    <ol class="breadcrumb">
+        <li><a href="#!/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Clientes</li>
+    </ol>
+
+
+</section>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Listado de clientes</h3>
+                <div class="box-tools">
+                    <div class="input-group">
+                        <a href="" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Agregar cliente</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Telefono1</th>
+                    <th>Telefono2</th>
+                    <th>Editar</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="cliente in clientes.clientes">
+                        <td ng-bind="cliente.id"></td>
+                        <td ng-bind="cliente.nombre"></td>
+                        <td ng-bind="cliente.correo"></td>
+                        <td ng-bind="cliente.telefono1"></td>
+                        <td ng-bind="cliente.telefono2"></td>
+                        <td><a href="" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Editar</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin pull-right hand">
+                    <li ><a ng-click="moverA(1)">«</a></li>
+
+                    <li ng-repeat="pag in clientes.paginas"
+                        ng-class="{'active':clientes.pag_actual===pag}">
+                        <!--<a ng-href="#!/clientes/{{pag}}" ng-bind="pag"></a>-->
+                        <a ng-click="moverA(pag)" ng-bind="pag"></a>
+                    </li>
+
+                    <li><a ng-click="moverA(clientes.total_paginas)">»</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.box -->
+
+    </div>
+</div>

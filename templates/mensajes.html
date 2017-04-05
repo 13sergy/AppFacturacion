@@ -1,0 +1,33 @@
+<!-- Menu toggle button -->
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-envelope-o"></i>
+    <span class="label label-success" ng-bind="mensajes.length"></span>
+</a>
+<ul class="dropdown-menu">
+    <li class="header">Tienes <span ng-bind="mensajes.length"></span> mensajes</li>
+    <li>
+        <!-- inner menu: contains the messages -->
+        <ul class="menu">
+
+            <li ng-repeat="mensaje in mensajes"><!-- start message -->
+                <a href="#">
+                    <div class="pull-left">
+                        <!-- User Image -->
+                        <img ng-src="{{mensaje.img}}" class="img-circle" alt="User Image">
+                    </div>
+                    <!-- Message title and timestamp -->
+                    <h4>
+                        <span ng-bind="mensaje.nombre"></span>
+                        <small><i class="fa fa-clock-o"></i> <span ng-bind="mensaje.fecha"></span></small>
+                    </h4>
+                    <!-- The message -->
+                    <p ng-bind="(mensaje.mensaje | MensajeCorto)"></p>
+                </a>
+            </li>
+            <!-- end message -->
+
+        </ul>
+        <!-- /.menu -->
+    </li>
+    <li class="footer"><a href="#">Todos los mensajes</a></li>
+</ul>
